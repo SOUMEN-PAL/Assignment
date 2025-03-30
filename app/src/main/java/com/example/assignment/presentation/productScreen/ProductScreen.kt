@@ -3,9 +3,7 @@ package com.example.assignment.presentation.productScreen
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -13,7 +11,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavController
-import com.example.assignment.data.models.Product
 import com.example.assignment.presentation.viewModels.ProductViewModel
 import com.example.assignment.utils.ProductDataState
 
@@ -54,7 +51,7 @@ fun ProductScreen(
             }
             is ProductDataState.Success -> {
                 val product = (state.value as ProductDataState.Success).data
-                ProductScreenData(product = product)
+                ProductScreenData(product = product , navController)
             }
         }
     }

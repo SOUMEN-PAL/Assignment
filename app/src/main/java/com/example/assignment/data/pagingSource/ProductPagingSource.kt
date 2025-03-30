@@ -5,6 +5,7 @@ import androidx.paging.PagingState
 import com.example.assignment.data.api.ProductsService
 import com.example.assignment.data.models.Product
 import com.example.assignment.data.models.Products
+import kotlinx.coroutines.delay
 
 class ProductPagingSource(
     private val apiService: ProductsService
@@ -20,7 +21,7 @@ class ProductPagingSource(
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Product> {
         val skip = params.key ?: 0
         val limit = params.loadSize
-
+        delay(2000)
         return try{
             val response = apiService.getProducts(limit, skip)
             if(response.isSuccessful){
